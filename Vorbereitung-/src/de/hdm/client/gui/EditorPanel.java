@@ -41,7 +41,6 @@ public class EditorPanel extends VerticalPanel{
     
 
 
->>>>>>> branch 'master' of https://github.com/serhat-ulus/Vorbereitung.git
 
 	
 	
