@@ -2,6 +2,7 @@ package de.hdm.client.gui;
 
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DecoratorPanel;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -25,8 +26,22 @@ public class EditorPanel extends VerticalPanel{
 	
 	Label l1 = new Label("etb");
 	
+
+  //  ScrollPanel scrollPanel = new ScrollPanel();
 	
-  
+	
+	
+    
+    
+    DecoratorPanel decoratorPanel = new DecoratorPanel();
+    
+    
+    
+
+    
+
+
+>>>>>>> branch 'master' of https://github.com/serhat-ulus/Vorbereitung.git
 
 	
 	
@@ -34,6 +49,7 @@ public class EditorPanel extends VerticalPanel{
 		this.add(add);
 		this.add(scrollPanel);
 		this.add(l1);
+		
 	}
 	
 public void onLoad() {
