@@ -16,9 +16,8 @@ public class EditorPanel extends VerticalPanel{
 	
 			 // scrollpanel with text  
 			 ScrollPanel scrollPanel = new ScrollPanel(); 
-			 //scrollPanel.setSize("300px", "100px");  
-			  // Adding the scroll panel to the root panel.  
 	
+			 
 	
 	
 	
