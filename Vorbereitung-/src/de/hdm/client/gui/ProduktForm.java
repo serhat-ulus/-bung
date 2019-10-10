@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.Label;
@@ -47,7 +48,10 @@ public class ProduktForm extends DialogBox {
 		content.add(saveButton);
 		content.add(editButton);
      	closeButton.addClickHandler(closeCommentClick);
+     	saveButton.addClickHandler(new sichernhandler());
+     	editButton.addClickHandler(new editierenhandler());
 		this.add(content);
+		
 		
 
 		
@@ -60,7 +64,7 @@ public class ProduktForm extends DialogBox {
 			// TODO Auto-generated method stub
 			
 		}
-		
+	
 	}
 	
 	class CommentKeyPressHandler implements KeyPressHandler {
@@ -110,10 +114,24 @@ public class ProduktForm extends DialogBox {
 		if (this.info.isAttached() == true) {
 			this.content.remove(this.info);
 		}
+	}
 
+	private class sichernhandler implements ClickHandler{
 
+		@Override
+		public void onClick(ClickEvent event) {
+				Window.alert("die Eingabe wurde gesichert");
+		}
+		
+	}
 	
-	
+	private class editierenhandler implements ClickHandler {
+
+		@Override
+		public void onClick(ClickEvent event) {
+				Window.alert("du hast etwas editiert");
+		}
+		
 
 	}
 
