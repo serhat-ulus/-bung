@@ -8,6 +8,7 @@ import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -18,13 +19,14 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ProduktForm extends DialogBox {
 
-
+	Button clickMe = new Button ("Click Me!");
 	Button closeButton = new Button("X");
 	Label changeLabel = new Label("Produkt hinzufügen:");
 	Button saveButton = new Button("Änderungen speichern");
 	Button editButton = new Button("Editieren");
 	final Label info = new Label("Bitte Textfeld befüllen!");
 	VerticalPanel content = new VerticalPanel();
+	HorizontalPanel p1 = new HorizontalPanel();
 	TextBox box = new TextBox();
 	private SaveCommentChangesClickHandler saveCommentsClick;
 	private CloseCommentEditFormClickHandler closeCommentClick;
@@ -47,11 +49,12 @@ public class ProduktForm extends DialogBox {
 		content.add(box);
 		content.add(saveButton);
 		content.add(editButton);
+		p1.add(clickMe);
      	closeButton.addClickHandler(closeCommentClick);
      	saveButton.addClickHandler(new sichernhandler());
      	editButton.addClickHandler(new editierenhandler());
 		this.add(content);
-		
+		this.add(p1);
 		
 
 		
