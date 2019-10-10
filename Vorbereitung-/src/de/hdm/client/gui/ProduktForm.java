@@ -53,8 +53,15 @@ public class ProduktForm extends DialogBox {
      	closeButton.addClickHandler(closeCommentClick);
      	saveButton.addClickHandler(new sichernhandler());
      	editButton.addClickHandler(new editierenhandler());
+     	
+     	
+     	closeButton.addStyleName("closer");
+		changeLabel.addStyleName("cc");
+     	
 		this.add(content);
 		this.add(p1);
+		
+		
 		
 
 		

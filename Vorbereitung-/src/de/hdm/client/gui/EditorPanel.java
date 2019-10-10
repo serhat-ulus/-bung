@@ -71,6 +71,8 @@ public void onLoad() {
 	
 	this.add(test);
 	
+	add.addStyleName("ss");
+	
 	
 
 	}
