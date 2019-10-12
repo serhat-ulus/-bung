@@ -14,15 +14,10 @@ public class DBConnection {
 
 	private static Connection con = null;
 	
-	
-//	private static String localUrl = "jdbc:mysql://localhost:3306/jakob2?user=root&password=password";
+																//das Pw ist mein locales PW für Workbench.
 	private static String localUrl = "jdbc:mysql://localhost:3306/jakob2?user=root&password=student&useUnicode=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static String googleUrl = "";
-	
-//	private static String localUrl = "jdbc:mysql://localhost/ITProjekt?user=root&password=password&useUnicode=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	
-	
-	
+
 	
 	/*
 	 * 
@@ -80,6 +75,3 @@ public class DBConnection {
 	}
 
 }
-
-
-
