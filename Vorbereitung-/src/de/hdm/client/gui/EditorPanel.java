@@ -27,7 +27,6 @@ public class EditorPanel extends HorizontalPanel {
 	
 	ProduktForm produkt= null;
 	
-//	private OpenUpClickHandler openUp;
 	
 	public EditorPanel() {
 		
@@ -35,39 +34,23 @@ public class EditorPanel extends HorizontalPanel {
     
     
 	
-	public EditorPanel(ProduktForm produkt) {
-		
-		this.produkt=produkt;
-		
 
-		
-	//	openUp = new OpenUpClickHandler();
-		
-	
-		
-		
-      }
    
 		
 		
-		
-	
-	
 	
 public void onLoad() {
 	
 	 
-   //  this.add(b);
-//	super.onLoad();
+   
 	
 	this.add(schmeckt);
 
 	
 	test.add(schmeckt);
 	
-	schmeckt.addClickHandler(new OpenUpClickHandler(this.produkt) );
 	
-//	schmeckt.addClickHandler(openUp);
+	schmeckt.addClickHandler(new OpenUpClickHandler());
 	
 	
 	schmeckt.addStyleName("ss");   
@@ -83,11 +66,7 @@ public void onLoad() {
 
     class OpenUpClickHandler implements ClickHandler {
     	
-    	private ProduktForm produkt = null;
-    	
-    	private OpenUpClickHandler(ProduktForm p) {
-    		this.produkt=produkt;
-    	}
+    
     	
 		public void onClick(ClickEvent event) {
 			
