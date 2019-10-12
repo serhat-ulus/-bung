@@ -14,9 +14,6 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
-
-
-
 public class ProduktForm extends DialogBox {
 
 	Button clickMe = new Button ("Click Me!");
@@ -31,13 +28,10 @@ public class ProduktForm extends DialogBox {
 	private SaveCommentChangesClickHandler saveCommentsClick;
 	private CloseCommentEditFormClickHandler closeCommentClick;
 
-
-
-
 	
 	public ProduktForm() {
-		
-		closeCommentClick = new CloseCommentEditFormClickHandler();
+	
+	closeCommentClick = new CloseCommentEditFormClickHandler();
 
 		
 	}
