@@ -19,17 +19,18 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ProduktForm extends DialogBox {
 
-	Button clickMe = new Button ("Click Me!");
 	Button closeButton = new Button("X");
 	Label changeLabel = new Label("Produkt hinzufügen:");
 	Button saveButton = new Button("Änderungen speichern");
 	Button editButton = new Button("Editieren");
 	final Label info = new Label("Bitte Textfeld befüllen!");
 	VerticalPanel content = new VerticalPanel();
-	HorizontalPanel p1 = new HorizontalPanel();
+	HorizontalPanel hz = new HorizontalPanel();
+	Button but = new Button("f");
 	TextBox box = new TextBox();
 	private SaveCommentChangesClickHandler saveCommentsClick;
 	private CloseCommentEditFormClickHandler closeCommentClick;
+	private openCommentEditFormClickHandler openComment;
 
 
 
@@ -38,6 +39,8 @@ public class ProduktForm extends DialogBox {
 	public ProduktForm() {
 		
 		closeCommentClick = new CloseCommentEditFormClickHandler();
+		openComment = new openCommentEditFormClickHandler();
+		
 
 		
 	}
@@ -49,19 +52,19 @@ public class ProduktForm extends DialogBox {
 		content.add(box);
 		content.add(saveButton);
 		content.add(editButton);
-		p1.add(clickMe);
+		but.addClickHandler(openComment);
      	closeButton.addClickHandler(closeCommentClick);
+     	editButton.addClickHandler(openComment);
      	saveButton.addClickHandler(new sichernhandler());
      	editButton.addClickHandler(new editierenhandler());
      	
      	
      	closeButton.addStyleName("closer");
 		changeLabel.addStyleName("cc");
-     	
+
+    // 	this.hide();
 		this.add(content);
-		this.add(p1);
-		
-		
+
 		
 
 		
@@ -101,6 +104,15 @@ public class ProduktForm extends DialogBox {
 		
 	}
 	
+	class openCommentEditFormClickHandler implements ClickHandler{
+		
+		public void onClick(ClickEvent event) {
+			openCommentEditForm();
+
+		}
+		
+	}
+	
 	/*
 	 * Methoden zum Öffnen und Schließen der CommentEditForm.
 	 */
@@ -117,13 +129,13 @@ public class ProduktForm extends DialogBox {
 	
 	public void openCommentEditForm() {
 		this.setGlassEnabled(true);
-		this.setAnimationEnabled(true);
+		//this.setAnimationEnabled(true);
 		this.center();
 		this.show();
 		box.setFocus(true);
-		if (this.info.isAttached() == true) {
-			this.content.remove(this.info);
-		}
+	//	if (this.info.isAttached() == true) {
+	//		this.content.remove(this.info);
+	//	}
 	}
 
 	private class sichernhandler implements ClickHandler{
