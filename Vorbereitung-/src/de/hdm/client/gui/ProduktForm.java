@@ -1,17 +1,22 @@
 package de.hdm.client.gui;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+
+import de.hdm.client.GreetingService;
+import de.hdm.client.GreetingServiceAsync;
 
 
 
@@ -31,6 +36,9 @@ public class ProduktForm extends DialogBox {
 	private SaveCommentChangesClickHandler saveCommentsClick;
 	private CloseCommentEditFormClickHandler closeCommentClick;
 	private openCommentEditFormClickHandler openComment;
+	
+	private static GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+
 
 
 
@@ -139,11 +147,32 @@ public class ProduktForm extends DialogBox {
 	}
 
 	private class sichernhandler implements ClickHandler{
+		
+
 
 		@Override
 		public void onClick(ClickEvent event) {
-				Window.alert("die Eingabe wurde gesichert");
+			greetingService.greetServer(box.getText(), new AsyncCallback<String>() {
+
+				
+				
+public void onFailure(Throwable caught) {
+					
+					box.setText(caught.getMessage());
+					
+				}
+
+				@Override
+				public void onSuccess(String result) {
+					// TODO Auto-generated method stub
+					
+					
+				}			
+});
+			
+			
 		}
+		
 		
 	}
 	

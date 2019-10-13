@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.DialogBox;
@@ -76,6 +77,9 @@ public void onLoad() {
     
     	
 		public void onClick(ClickEvent event) {
+			
+		//	greetingService.greetServer(schmeckt.getText(), new AsyncCallback<String>() {
+
 			
 			ProduktForm produkt = new ProduktForm();
 			produkt.openCommentEditForm();
