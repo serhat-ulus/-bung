@@ -7,7 +7,7 @@ public class Produkt implements IsSerializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	private int produtkID;
+	private int produktID;
 	
 	private String name;
 	
@@ -16,16 +16,16 @@ public class Produkt implements IsSerializable {
 	}
 	
 	public Produkt(int produktID, String name) {
-		this.produtkID=produktID;
+		this.produktID=produktID;
 		this.name=name;
 	}
 
 	public int getProdutkID() {
-		return produtkID;
+		return produktID;
 	}
 
 	public void setProdutkID(int produtkID) {
-		this.produtkID = produtkID;
+		this.produktID = produtkID;
 	}
 
 	public String getName() {

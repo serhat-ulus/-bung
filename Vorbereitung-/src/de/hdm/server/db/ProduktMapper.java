@@ -30,7 +30,7 @@ public class ProduktMapper {
 			
 			Statement stm = con.createStatement();
 			
-			stm.executeUpdate("INSERT INTO Inhaltsspalte (Inhalt) VALUES ('" + l + "')");	
+			stm.executeUpdate("INSERT INTO Produkt (name) VALUES ('" + l + "')");	
 		
 		}
 		
@@ -40,7 +40,7 @@ public class ProduktMapper {
 			
 			Statement stm = con.createStatement();
 			
-			stm.executeUpdate("DELETE FROM Inhaltsspalte;" );
+			stm.executeUpdate("DELETE FROM Produkt;" );
 		}
 		
 		
@@ -53,7 +53,7 @@ public class ProduktMapper {
 			try {
 				stm = con.createStatement();
 				
-				ResultSet rs = stm.executeQuery("SELECT * FROM Inhaltsspalte;");
+				ResultSet rs = stm.executeQuery("SELECT * FROM Produkt;");
 				
 				
 				
