@@ -1,5 +1,6 @@
 package de.hdm.client.gui;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
@@ -15,9 +16,15 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+import de.hdm.client.GreetingService;
+import de.hdm.client.GreetingServiceAsync;
+
 
 
 public class EditorPanel extends HorizontalPanel {
+	
+	private static GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+
 	
 	
 	
