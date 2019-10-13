@@ -1,4 +1,4 @@
-package de.hdm.shared;
+package de.hdm.shared.bo;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
@@ -10,6 +10,15 @@ public class Produkt implements IsSerializable {
 	private int produtkID;
 	
 	private String name;
+	
+	public Produkt() {
+		
+	}
+	
+	public Produkt(int produktID, String name) {
+		this.produtkID=produktID;
+		this.name=name;
+	}
 
 	public int getProdutkID() {
 		return produtkID;

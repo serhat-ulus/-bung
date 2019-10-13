@@ -1,4 +1,4 @@
-package de.hdm.shared;
+package de.hdm.shared.bo;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
