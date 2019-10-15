@@ -41,7 +41,7 @@ public class ProduktMapper {
 			Statement stm = con.createStatement();
 			
 			stm.executeUpdate("DELETE FROM Produkt;" );
-		}
+		}//
 		
 		
 		public ArrayList<Produkt> getAllData(){  // Inhalte ausgeben aus der Datenbank
