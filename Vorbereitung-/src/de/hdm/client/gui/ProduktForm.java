@@ -1,5 +1,7 @@
 package de.hdm.client.gui;
 
+import java.util.ArrayList;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -17,6 +19,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 import de.hdm.client.GreetingService;
 import de.hdm.client.GreetingServiceAsync;
+import de.hdm.shared.bo.Produkt;
 
 
 
@@ -28,6 +31,7 @@ public class ProduktForm extends DialogBox {
 	Label changeLabel = new Label("Produkt hinzufügen:");
 	Button saveButton = new Button("Änderungen speichern");
 	Button editButton = new Button("Editieren");
+	Button anzeigen   = new Button ("anzeigen");
 	final Label info = new Label("Bitte Textfeld befüllen!");
 	VerticalPanel content = new VerticalPanel();
 	HorizontalPanel hz = new HorizontalPanel();
@@ -37,6 +41,7 @@ public class ProduktForm extends DialogBox {
 	private CloseCommentEditFormClickHandler closeCommentClick;
 	private openCommentEditFormClickHandler openComment;
 	private sichernhandler a1;
+	private dataButtonClickhandler produkteAnzeigen;
 	
 	private static GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
@@ -58,7 +63,8 @@ public class ProduktForm extends DialogBox {
 		closeCommentClick = new CloseCommentEditFormClickHandler();
 		openComment = new openCommentEditFormClickHandler();
 		a1 = new sichernhandler();
-		this.saveButton.addClickHandler(a1);
+		produkteAnzeigen = new dataButtonClickhandler();
+	//	this.saveButton.addClickHandler(a1);
 		
 
 		
@@ -71,12 +77,14 @@ public class ProduktForm extends DialogBox {
 		content.add(box);
 		content.add(saveButton);
 		content.add(editButton);
+		content.add(anzeigen);
 		
 		but.addClickHandler(openComment);
      	closeButton.addClickHandler(closeCommentClick);
      	editButton.addClickHandler(openComment);
      	saveButton.addClickHandler(new sichernhandler());
      	editButton.addClickHandler(new editierenhandler());
+     	anzeigen.addClickHandler(new dataButtonClickhandler());
      	
      	
      	closeButton.addStyleName("closer");
@@ -190,6 +198,48 @@ public class ProduktForm extends DialogBox {
 		
 	}
 	
+	private class dataButtonClickhandler implements ClickHandler{
+
+		@Override
+		public void onClick(ClickEvent event) {
+			
+			greetingService.getAllData(new AsyncCallback<ArrayList<Produkt>>(){
+
+				@Override
+				public void onFailure(Throwable caught) {
+					
+					ProduktForm.this.add(new Label(caught.getMessage()));
+					ProduktForm.this.add(new Label(caught.toString()));
+					ProduktForm.this.add(new Label(caught.getLocalizedMessage()));
+				
+					
+				}
+
+				@Override
+				public void onSuccess(ArrayList<Produkt> result) {
+					
+System.out.println("Hallo");
+
+					
+					ArrayList<Produkt> liste = result;
+					
+					for(int i = 0; i < liste.size(); i++) {
+						ProduktForm.this.add(new Label("inhalt: " + liste.get(i).getName() + " date: " + liste.get(i).getDate()));
+					}
+					
+				}
+
+		});
+	
+			
+			
+		}
+		
+		
+}
+	
+	
+	
 	private class editierenhandler implements ClickHandler {
 
 		@Override
@@ -201,5 +251,5 @@ public class ProduktForm extends DialogBox {
 	}
 
 	
-	
-}
+	}
+
