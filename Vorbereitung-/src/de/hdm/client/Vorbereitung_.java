@@ -27,13 +27,14 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class Vorbereitung_ implements EntryPoint {
 	
-	private static class MyDialog extends DialogBox {
 
 	  
-	 
+	private static final String SERVER_ERROR = "An error occurred while "
+			+ "attempting to contact the server. Please check your network " + "connection and try again.";
+
 
 			
-	   }
+	   
 
 	
 

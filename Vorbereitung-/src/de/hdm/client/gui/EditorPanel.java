@@ -24,7 +24,6 @@ import de.hdm.client.GreetingServiceAsync;
 
 public class EditorPanel extends HorizontalPanel {
 	
-	private static GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
 	
 	

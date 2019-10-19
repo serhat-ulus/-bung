@@ -33,9 +33,10 @@ public class ProduktForm extends DialogBox {
 	HorizontalPanel hz = new HorizontalPanel();
 	Button but = new Button("f");
 	TextBox box = new TextBox();
-	private SaveCommentChangesClickHandler saveCommentsClick;
+//	private SaveCommentChangesClickHandler saveCommentsClick;
 	private CloseCommentEditFormClickHandler closeCommentClick;
 	private openCommentEditFormClickHandler openComment;
+	private sichernhandler a1;
 	
 	private static GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
@@ -46,20 +47,31 @@ public class ProduktForm extends DialogBox {
 	
 	public ProduktForm() {
 		
+	//	this.add(box);
+		
+	//	this.add(saveButton);
+		
+	//	sichernhandler a1 = new sichernhandler();
+		
+	//	this.saveButton.addClickHandler(a1);
+		this.add(saveButton);
 		closeCommentClick = new CloseCommentEditFormClickHandler();
 		openComment = new openCommentEditFormClickHandler();
+		a1 = new sichernhandler();
+		this.saveButton.addClickHandler(a1);
 		
 
 		
 	}
 	
 	public void onLoad() {
-		super.onLoad();
+	//	super.onLoad();
 		content.add(closeButton);
 		content.add(changeLabel);
 		content.add(box);
 		content.add(saveButton);
 		content.add(editButton);
+		
 		but.addClickHandler(openComment);
      	closeButton.addClickHandler(closeCommentClick);
      	editButton.addClickHandler(openComment);
@@ -78,7 +90,7 @@ public class ProduktForm extends DialogBox {
 		
 	}
 
-	class SaveCommentChangesClickHandler implements ClickHandler {
+	/*class SaveCommentChangesClickHandler implements ClickHandler {
 
 		@Override
 		public void onClick(ClickEvent event) {
@@ -86,7 +98,7 @@ public class ProduktForm extends DialogBox {
 			
 		}
 	
-	}
+	}  */
 	
 	class CommentKeyPressHandler implements KeyPressHandler {
 
@@ -137,7 +149,7 @@ public class ProduktForm extends DialogBox {
 	
 	public void openCommentEditForm() {
 		this.setGlassEnabled(true);
-		//this.setAnimationEnabled(true);
+		this.setAnimationEnabled(true);
 		this.center();
 		this.show();
 		box.setFocus(true);
@@ -149,22 +161,24 @@ public class ProduktForm extends DialogBox {
 	private class sichernhandler implements ClickHandler{
 		
 
-
 		@Override
 		public void onClick(ClickEvent event) {
 			greetingService.greetServer(box.getText(), new AsyncCallback<String>() {
 
 				
 				
-public void onFailure(Throwable caught) {
+                public void onFailure(Throwable caught) {
 					
-					box.setText(caught.getMessage());
+	            box.setText(caught.getMessage());
+	    //        System.out.println("Fail");
 					
 				}
 
 				@Override
 				public void onSuccess(String result) {
 					// TODO Auto-generated method stub
+		 //           System.out.println("Success");
+
 					
 					
 				}			

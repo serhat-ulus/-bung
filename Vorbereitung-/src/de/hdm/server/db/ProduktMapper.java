@@ -21,7 +21,7 @@ public class ProduktMapper {
 		    	produktmapper = new ProduktMapper();
 		    }
 
-		    return produktmapper();
+		    return produktmapper;
 		  }
 	  
 	  public void insert(String l) throws SQLException {  // Inhalte einfügen in die Datenbank
@@ -58,7 +58,7 @@ public class ProduktMapper {
 				
 				
 				while(rs.next()) {
-					liste.add(new Produkt(rs.getInt("produktID"), rs.getString("name")));
+					liste.add(new Produkt(rs.getInt("produktID"), rs.getString("name"),rs.getString("timestamp")));
 				}
 				
 				return liste;
