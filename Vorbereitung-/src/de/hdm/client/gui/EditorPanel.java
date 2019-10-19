@@ -20,7 +20,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import de.hdm.client.GreetingService;
 import de.hdm.client.GreetingServiceAsync;
 
-
+//TEST
 
 public class EditorPanel extends HorizontalPanel {
 	
